@@ -25,32 +25,24 @@ var todoList = {
 
   todosUl: document.querySelector("#todos"),
 
-  generateNewTodo: function(text) {
-    return {
-      text: text,
-      index: this.todos.length
-    };
-  },
-
   displayTodos: function() {
     this.todosUl.textContent = '';
 
     this.todos.forEach((todo) => {
       const newLi = document.createElement("li");
-      newLi.textContent = todo.text;
+      newLi.textContent = todo;
       this.todosUl.append(newLi);
     });
   },
 
   changeTodo: function(index, text) {
-    this.todos[index].text = text;
+    this.todos[index] = text;
   }
 };
 
 var handlers = {
   onNewTodoButtonClick: function() {
-    const newTodo = todoList.generateNewTodo(todoList.newTodoInput.value);
-    todoList.todos.push(newTodo);
+    todoList.todos.push(todoList.newTodoInput.value);
     todoList.newTodoInput.value = '';
     todoList.displayTodos();
   },
