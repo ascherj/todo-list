@@ -7,9 +7,15 @@
 <body>
   <h1>Todo List</h1>
   <div id="new-todo">
-    <label>New Todo</label>
+    <span>New Todo:</span>
     <input type="text"></input>
-    <button type="submit">Submit</button>
+    <button type="submit">Add</button>
+  </div>
+  <div id="change-todo">
+    <span>Change Todo:</span>
+    <input type="number" placeholder="todo index..."></input>
+    <input type="text" placeholder="new todo text..."></input>
+    <button type="submit">Change</button>
   </div>
   <ul id="todos"></ul>
   <script src="app.js"></script>
