@@ -1,11 +1,3 @@
-/*
-  Requirements:
-    - It should have a function to add new todos (DONE)
-    - It should have a function to display todos (DONE)
-    - It should have a function to change a todo (DONE)
-    - It should have a function to delete a todo (DONE)
-*/
-
 var app = {
   setupEventListeners: function() {
     todoList.newTodoButton.addEventListener('click', handlers.onNewTodoButtonClick);
