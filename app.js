@@ -2,14 +2,15 @@
   Requirements:
     - It should have a function to add new todos (DONE)
     - It should have a function to display todos (DONE)
-    - It should have a function to change a todo
-    - It should have a function to delete a todo
+    - It should have a function to change a todo (DONE)
+    - It should have a function to delete a todo (DONE)
 */
 
 var app = {
   setupEventListeners: function() {
     todoList.newTodoButton.addEventListener('click', handlers.onNewTodoButtonClick);
     todoList.changeTodoButton.addEventListener('click', handlers.onChangeTodoButtonClick);
+    todoList.deleteTodoButton.addEventListener('click', handlers.onDeleteTodoButtonClick);
   }
 }
 
@@ -22,6 +23,9 @@ var todoList = {
   changeTodoIndexInput: document.querySelector("#change-todo input:nth-of-type(1)"),
   changeTodoTextInput: document.querySelector("#change-todo input:nth-of-type(2)"),
   changeTodoButton: document.querySelector("#change-todo button"),
+
+  deleteTodoInput: document.querySelector("#delete-todo input"),
+  deleteTodoButton: document.querySelector("#delete-todo button"),
 
   todosUl: document.querySelector("#todos"),
 
@@ -37,6 +41,10 @@ var todoList = {
 
   changeTodo: function(index, text) {
     this.todos[index] = text;
+  },
+
+  deleteTodo: function(index) {
+    this.todos.splice(index, 1);
   }
 };
 
@@ -53,6 +61,12 @@ var handlers = {
     todoList.changeTodo(index, text);
     todoList.changeTodoIndexInput.value = '';
     todoList.changeTodoTextInput.value = '';
+    todoList.displayTodos();
+  },
+
+  onDeleteTodoButtonClick: function() {
+    todoList.deleteTodo(todoList.deleteTodoInput.value);
+    todoList.deleteTodoInput.value = '';
     todoList.displayTodos();
   }
 };
