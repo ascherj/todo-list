@@ -1,31 +1,44 @@
 var app = {
   setupEventListeners: function() {
-    todoList.newTodoButton.addEventListener('click', handlers.onNewTodoButtonClick);
-    todoList.changeTodoButton.addEventListener('click', handlers.onChangeTodoButtonClick);
-    todoList.deleteTodoButton.addEventListener('click', handlers.onDeleteTodoButtonClick);
+    todoList.newTodoButton.addEventListener(
+      'click',
+      handlers.onNewTodoButtonClick
+    );
+    todoList.changeTodoButton.addEventListener(
+      'click',
+      handlers.onChangeTodoButtonClick
+    );
+    todoList.deleteTodoButton.addEventListener(
+      'click',
+      handlers.onDeleteTodoButtonClick
+    );
   }
-}
+};
 
 var todoList = {
   todos: [],
 
-  newTodoInput: document.querySelector("#new-todo input"),
-  newTodoButton: document.querySelector("#new-todo button"),
+  newTodoInput: document.querySelector('#new-todo input'),
+  newTodoButton: document.querySelector('#new-todo button'),
 
-  changeTodoIndexInput: document.querySelector("#change-todo input:nth-of-type(1)"),
-  changeTodoTextInput: document.querySelector("#change-todo input:nth-of-type(2)"),
-  changeTodoButton: document.querySelector("#change-todo button"),
+  changeTodoIndexInput: document.querySelector(
+    '#change-todo input:nth-of-type(1)'
+  ),
+  changeTodoTextInput: document.querySelector(
+    '#change-todo input:nth-of-type(2)'
+  ),
+  changeTodoButton: document.querySelector('#change-todo button'),
 
-  deleteTodoInput: document.querySelector("#delete-todo input"),
-  deleteTodoButton: document.querySelector("#delete-todo button"),
+  deleteTodoInput: document.querySelector('#delete-todo input'),
+  deleteTodoButton: document.querySelector('#delete-todo button'),
 
-  todosUl: document.querySelector("#todos"),
+  todosUl: document.querySelector('#todos'),
 
   displayTodos: function() {
     this.todosUl.textContent = '';
 
-    this.todos.forEach((todo) => {
-      const newLi = document.createElement("li");
+    this.todos.forEach(todo => {
+      const newLi = document.createElement('li');
       newLi.textContent = todo;
       this.todosUl.append(newLi);
     });
