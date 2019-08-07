@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import TodoList from './TodoList';
 
 const App = () => {
   return (
@@ -7,31 +8,14 @@ const App = () => {
       <header>
         <h1>Todo List</h1>
       </header>
-
-      <main>
-        <div id="new-todo">
-          <span>New Todo:</span>
-          <input type="text"></input>
-          <button type="submit">Add</button>
-        </div>
-        <div id="change-todo">
-          <span>Change Todo:</span>
-          <input type="number" placeholder="todo index..."></input>
-          <input type="text" placeholder="new todo text..."></input>
-          <button type="submit">Change</button>
-        </div>
-        <div id="delete-todo">
-          <span>Delete Todo:</span>
-          <input type="number" placeholder="todo index..."></input>
-          <button type="submit">Delete</button>
-        </div>
-        <ul id="todos"></ul>
-      </main>
+      <TodoList />
     </div>
   );
 };
 
 render(<App />, document.getElementById('root'));
+
+// VANILLA JS SOON TO BE CONVERTED TO REACT
 
 var app = {
   setupEventListeners: function() {
